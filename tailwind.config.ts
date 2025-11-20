@@ -17,6 +17,8 @@ const config: Config = {
         // Background Colors
         black: '#000000',
         'spotify-black': '#000000',
+        'spotify-elevated': '#1A1A1A',
+        'spotify-elevated-highlight': '#2A2A2A',
         base: '#121212',
         'elevated-base': '#1A1A1A',
         highlight: '#2A2A2A',
@@ -26,6 +28,8 @@ const config: Config = {
 
         // Text Colors
         white: '#FFFFFF',
+        'spotify-gray-300': '#B3B3B3',
+        'spotify-gray-400': '#6A6A6A',
         subdued: '#B3B3B3',
         subtle: '#6A6A6A',
         disabled: '#535353',

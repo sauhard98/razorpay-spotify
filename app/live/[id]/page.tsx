@@ -317,9 +317,10 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
                     </div>
 
                     {/* Sidebar - Ticket Purchase */}
-            <div className="lg:col-span-1">
-                <div className="sticky top-32 bg-spotify-elevated rounded-lg p-3">
-                    <h3 className="text-base font-bold mb-2">Get Tickets</h3>                            {hasDiscount && (
+                    <div className="lg:col-span-1">
+                        <div className="sticky top-32 bg-spotify-elevated rounded-lg p-3">
+                            <h3 className="text-base font-bold mb-2">Get Tickets</h3>{" "}
+                            {hasDiscount && (
                                 <div className="bg-gradient-to-r from-spotify-green/20 to-green-600/20 border border-spotify-green/30 rounded-lg p-2 mb-3">
                                     <div className="flex items-center gap-1.5 mb-0.5">
                                         <span className="text-sm">✨</span>
@@ -332,7 +333,6 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
                                     </p>
                                 </div>
                             )}
-
                             <div className="mb-4">
                                 <div className="flex items-baseline gap-1.5 mb-1">
                                     {hasDiscount && (
@@ -344,7 +344,6 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
                                 </div>
                                 <p className="text-xs text-spotify-gray-400">per ticket</p>
                             </div>
-
                             <div className="mb-4">
                                 <label className="block text-xs font-semibold mb-1.5">Quantity</label>
                                 <select
@@ -358,7 +357,6 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
                                     ))}
                                 </select>
                             </div>
-
                             <div className="mb-4 pb-4 border-b border-spotify-elevated-highlight">
                                 <div className="flex justify-between text-xs mb-1.5">
                                     <span className="text-spotify-gray-400">Subtotal</span>
@@ -375,7 +373,6 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
                                     <span>${(discountedPrice * selectedQuantity + 5).toFixed(2)}</span>
                                 </div>
                             </div>
-
                             <div className="space-y-1.5">
                                 <Button
                                     onClick={handleBuyNow}
@@ -391,7 +388,6 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
                                     Add to Cart
                                 </Button>
                             </div>
-
                             {event.ticketsAvailable < 100 && (
                                 <p className="text-center text-xs text-orange-500 font-semibold mt-3">
                                     ⚠️ Only {event.ticketsAvailable} tickets remaining!
