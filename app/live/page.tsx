@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, Suspense } from "react";
 import { useApp } from "@/lib/context";
 import { TopNav } from "@/components/TopNav";
 import { Event } from "@/lib/types";
@@ -10,7 +10,7 @@ import { Calendar, MapPin, Heart, Users, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 
-export default function LivePage() {
+function LivePageContent() {
     const { events, user, savedEvents, toggleSaveEvent } = useApp();
     const searchParams = useSearchParams();
     const artistFilter = searchParams.get("artist");
@@ -288,5 +288,28 @@ export default function LivePage() {
                 </section>
             </main>
         </div>
+    );
+}
+
+export default function LivePage() {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen bg-spotify-black text-white">
+                <TopNav />
+                <main className="pt-8 px-8 pb-24">
+                    <div className="animate-pulse space-y-8">
+                        <div className="h-8 bg-spotify-elevated rounded w-48"></div>
+                        <div className="h-4 bg-spotify-elevated rounded w-64"></div>
+                        <div className="flex gap-4 overflow-hidden">
+                            {[1, 2, 3, 4].map((i) => (
+                                <div key={i} className="w-[280px] h-[400px] bg-spotify-elevated rounded"></div>
+                            ))}
+                        </div>
+                    </div>
+                </main>
+            </div>
+        }>
+            <LivePageContent />
+        </Suspense>
     );
 }
